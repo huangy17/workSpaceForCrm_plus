@@ -65,7 +65,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				type : "post",
 				dataType : "json",
 				success : function (data) {
-					alert(data.objData)
+					//alert(data.objData)
 
 					/*
 

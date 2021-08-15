@@ -13,6 +13,7 @@
         <!--domain包中的类名就是别名-->
 <!--        <package name="com.bjpowernode.huangyb.domain" />-->
         <package name="com.bjpowernode.crm.settings.domain" />
+        <package name="com.bjpowernode.crm.workbench.domain" />
     </typeAliases>
 
 
@@ -20,5 +21,6 @@
         <!--加载dao包中的所有mapper文件-->
 <!--       <package name="com.bjpowernode.huangyb.dao" />-->
        <package name="com.bjpowernode.crm.settings.dao" />
+       <package name="com.bjpowernode.crm.workbench.dao" />
     </mappers>
 </configuration>

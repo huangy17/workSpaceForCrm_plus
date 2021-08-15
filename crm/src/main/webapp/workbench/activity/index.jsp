@@ -124,6 +124,7 @@
 					dataType : "json",
 					success : function (data) {
 
+
 						/*
 
                             data
@@ -152,10 +153,10 @@
                             * */
 
 							//做完添加操作后，应该回到第一页，维持每页展现的记录数
-
+							//alert("2")
 							pageList(1,$("#activityPage").bs_pagination('getOption', 'rowsPerPage'));
 
-
+							//alert("3")
 
 							//清空添加操作模态窗口中的数据
 							//提交表单
