@@ -13,7 +13,9 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
-
+  <listener>
+    <listener-class>com.bjpowernode.crm.web.listener.SysInitListener</listener-class>
+  </listener>
 
 
   <!--声明springmvc的中央调度器-->
@@ -30,27 +32,6 @@
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-
-
-  <!--申明过滤jsp请求的过滤器
-      为什么要用servlet过滤器不用spring拦截器？
-        因为spring拦截器只拦截html,css,js等等的静态资源路径，而jsp不属于静态资源路径所以默认不拦截
-
-1、将所有的jsp文件放入到WEB-INF文件夹下，这样用户是直接不能访问WEB-INF文件下的jsp文件的。spring mvc的理念也是通过controller里的@RequestMapping来请求相关jsp页面，而非用户直接访问jsp页面。
-    也就是说，jsp页面的访问需要通过controller来进行一次请求，因为会拦截对controller的请求，所以也就相当于拦截了jsp页面。
-    如果要做登陆拦截，只需要把登陆页面不拦截，其余页面拦截进行是否登陆的验证即可。
-2、还有一种解决方案：jsp如果不放在WEB-INF文件下，spring mvc是无法拦截的，这种情况下需要用最原始的servlet的Filter接口。-->
-
-  <filter>
-    <filter-name>LoginFilter</filter-name>
-    <filter-class>com.bjpowernode.crm.web.filter.LoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>LoginFilter</filter-name>
-    <url-pattern>*.do</url-pattern>
-    <url-pattern>*.jsp</url-pattern>
-  </filter-mapping>
-
 
 
   <!--声明字符集过滤器-->
@@ -74,4 +55,29 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <!--申明过滤jsp请求的过滤器
+      为什么要用servlet过滤器不用spring拦截器？
+        因为spring拦截器只拦截html,css,js等等的静态资源路径，而jsp不属于静态资源路径所以默认不拦截
+
+1、将所有的jsp文件放入到WEB-INF文件夹下，这样用户是直接不能访问WEB-INF文件下的jsp文件的。spring mvc的理念也是通过controller里的@RequestMapping来请求相关jsp页面，而非用户直接访问jsp页面。
+    也就是说，jsp页面的访问需要通过controller来进行一次请求，因为会拦截对controller的请求，所以也就相当于拦截了jsp页面。
+    如果要做登陆拦截，只需要把登陆页面不拦截，其余页面拦截进行是否登陆的验证即可。
+2、还有一种解决方案：jsp如果不放在WEB-INF文件下，spring mvc是无法拦截的，这种情况下需要用最原始的servlet的Filter接口。-->
+
+
+
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.bjpowernode.crm.web.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+
+
+
+
 </web-app>

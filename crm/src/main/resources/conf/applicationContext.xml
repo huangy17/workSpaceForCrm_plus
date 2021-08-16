@@ -31,6 +31,9 @@
 
     <!--spring的配置文件：声明service ，dao， 工具类， 事务配置-->
 
+    <!-- 配置监听器，向spring容器发布事件，自动触发监听器的onApplicationEvent方法 -->
+    <bean class="com.bjpowernode.crm.web.listener.SysInitListener"></bean>
+
     <context:component-scan base-package="com.bjpowernode.*" />
 
     <!--<mvc:default-servlet-handler/>-->
