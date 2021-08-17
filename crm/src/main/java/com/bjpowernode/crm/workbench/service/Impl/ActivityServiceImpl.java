@@ -183,7 +183,7 @@ public class ActivityServiceImpl implements ActivityService {
         return flag;
     }
 
-/*
+
     @Override
     public List<Activity> getActivityListById(String clueId) {
 
@@ -209,5 +209,5 @@ public class ActivityServiceImpl implements ActivityService {
         return aList;
     }
 
- */
+
 }
